@@ -1,35 +1,10 @@
 describe("Test suite", () => {
   beforeEach(() => {
     cy.viewport(1024, 768);
-    cy.visit("file:///Users/bea/projects/QA%20Automation%20Registration%20Mockup%20Task/mockup.html");
+    cy.visit("http://localhost:3000");
   });
-  it("First test", () => {
-    cy.contains("Registration Info").should("exist");
+   
+  it("Check if the title is correct", () => {
+    cy.get(".title").should("have.text","Registration Info");
   });
-
-  it("First test", () => {
-    cy.contains("Registration Info").should("exist");
-  });
-
-  it("First test", () => {
-    cy.contains("Registration Info").should("exist");
-  });
-
-  it("First test", () => {
-    cy.contains("Registration Info").should("exist");
-  });
-
-  it("First test", () => {
-    cy.contains("Registration Info").should("exist");
-  });
-
-  it("First test", () => {
-    cy.contains("Registration Info").should("exist");
-  });
-
-  it("First test", () => {
-    cy.contains("Registration Info").should("exist");
-  });
-
-
 });
