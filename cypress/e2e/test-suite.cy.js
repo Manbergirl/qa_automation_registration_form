@@ -1,4 +1,4 @@
-describe("Test suite", () => {
+describe("Test Suite", () => {
   beforeEach(() => {
     cy.viewport(1024, 768);
     cy.visit("http://localhost:3000");
@@ -12,4 +12,26 @@ describe("Test suite", () => {
     cy.get('#registration-form > :nth-child(1) > .input--style-1').clear().type('John').should('have.value', 'John');
   });
 
-});
+  it('Verify the handling of name input with special characters', () => {
+    cy.get('#registration-form > :nth-child(1) > .input--style-1').type('{{}John Travolta,?}')
+    .should('have.value', '{John Travolta,?}')
+  });
+  
+  it('Accepts valid birthday date', () => {
+    cy.get('#registration-form .js-btn-calendar').type('05/09/1974').click()
+  
+  });  
+
+  it('Verify the handling of gender input', () => {
+    cy.get('#registration-form select.gender').select('Male', {force: true});
+  });
+
+  it('Verify the handling of Phone Prefix input', () => {
+    cy.get('#registration-form .rs-select2 select.prefix').select('+359', {force: true});
+  });
+
+  it.only('Verify the handling of Phone number input', () => {
+    cy.get('#registration-form > :nth-child(3) > :nth-child(2) > .input-group > .input--style-1').type('895113999').click()
+  });
+  
+})
