@@ -2,8 +2,7 @@ const { type } = require("os");
 
 describe("Registration Form Fields", () => {
   beforeEach(() => {
-    cy.viewport(1024, 768);
-    cy.visit("http://localhost:3000");
+    cy.visit(Cypress.config().baseUrl)
   });
    
   it("Check if the title is correct", () => {
