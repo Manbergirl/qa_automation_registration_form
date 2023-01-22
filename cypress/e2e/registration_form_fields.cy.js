@@ -35,9 +35,12 @@ describe("Registration Form Fields", () => {
   });
   
   it('Verify the handling of EGN input',()=>{
-    // cy.get('#registration-form > :nth-child(4) > .col-2 > .input-group > .input--style-1').type('7405095407')
-    cy.get('.p-t-20 > .btn--green').should('be.visible').should('be.enabled').click();
+  cy.get('#registration-form > :nth-child(4) > .col-2 > .input-group > .input--style-1').type('7405095407')
+    
   });
 
+  it('Verify the handling of Submit Button',()=>{
+    cy.get('#registration-form .p-t-20 .btn.btn--radius.btn--green').click();
+  });
 
 });
